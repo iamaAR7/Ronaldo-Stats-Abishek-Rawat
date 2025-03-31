@@ -34,7 +34,7 @@ export default function Home() {
           <Card className="bg-gradient-to-br from-red-500/10 to-blue-500/10 border-primary/20 hover:shadow-md transition-all">
             <CardContent className="p-6 flex flex-col items-center">
               <Trophy className="h-8 w-8 mb-2 text-red-500" />
-              <div className="text-3xl font-bold">863</div>
+              <div className="text-3xl font-bold">927</div>
               <div className="text-sm text-muted-foreground">Career Goals</div>
             </CardContent>
           </Card>
