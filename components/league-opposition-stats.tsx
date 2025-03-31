@@ -5,14 +5,14 @@ import { PieChart, Pie, Cell } from "recharts"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { type ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
 
-// Top opposition teams Ronaldo scored against in leagues
+// Top opposition teams Ronaldo scored against in leagues with team colors
 const oppositionData = [
-  { name: "Sevilla", value: 27, color: "hsl(var(--chart-1))" },
-  { name: "Atletico Madrid", value: 25, color: "hsl(var(--chart-2))" },
-  { name: "Getafe", value: 23, color: "hsl(var(--chart-3))" },
-  { name: "Barcelona", value: 20, color: "hsl(var(--chart-4))" },
-  { name: "Celta Vigo", value: 20, color: "hsl(var(--chart-5))" },
-  { name: "Other Teams", value: 424, color: "hsl(var(--chart-6))" },
+  { name: "Sevilla", value: 27, color: "#e30613" }, // Sevilla red
+  { name: "Atletico Madrid", value: 25, color: "#cb3524" }, // Atletico red
+  { name: "Getafe", value: 23, color: "#005999" }, // Getafe blue
+  { name: "Barcelona", value: 20, color: "#a50044" }, // Barcelona maroon
+  { name: "Celta Vigo", value: 20, color: "#6cace4" }, // Celta Vigo sky blue
+  { name: "Other Teams", value: 424, color: "#2e3a59" }, // Dark blue for other teams
 ]
 
 const chartConfig = {
@@ -37,7 +37,7 @@ export function LeagueOppositionStats() {
               cx="50%"
               cy="50%"
               labelLine={true}
-              outerRadius={80}
+              outerRadius={150}
               fill="#8884d8"
               dataKey="value"
               nameKey="name"
@@ -47,7 +47,18 @@ export function LeagueOppositionStats() {
                 <Cell key={`cell-${index}`} fill={entry.color} />
               ))}
             </Pie>
-            <ChartTooltip content={<ChartTooltipContent />} />
+            <ChartTooltip
+              content={
+                <ChartTooltipContent
+                  customContent={(entry:any) => (
+                    <div className="flex flex-col gap-1">
+                      <div className="font-medium">{entry?.payload?.[0]?.name}</div>
+                      <div>Goals: {entry?.payload?.[0]?.value}</div>
+                    </div>
+                  )}
+                />
+              }
+            />
           </PieChart>
         </ChartContainer>
       </CardContent>

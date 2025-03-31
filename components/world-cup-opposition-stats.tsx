@@ -1,17 +1,17 @@
 "use client"
 
-import { BarChart, Bar, XAxis, CartesianGrid } from "recharts"
+import { BarChart, Bar, XAxis, CartesianGrid, Cell } from "recharts"
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { type ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
 
-// Teams Ronaldo scored against in World Cup
+// Teams Ronaldo scored against in World Cup with colors matching their flags
 const oppositionData = [
-  { team: "Spain", goals: 3 },
-  { team: "Ghana", goals: 2 },
-  { team: "Iran", goals: 1 },
-  { team: "North Korea", goals: 1 },
-  { team: "Morocco", goals: 1 },
+  { team: "Spain", goals: 3, color: "#c60b1e" }, // Spanish red
+  { team: "Ghana", goals: 2, color: "#006b3f" }, // Ghana green
+  { team: "Iran", goals: 1, color: "#239f40" }, // Iran green
+  { team: "North Korea", goals: 1, color: "#ed1c27" }, // North Korean red
+  { team: "Morocco", goals: 1, color: "#c1272d" }, // Moroccan red
 ]
 
 const chartConfig = {
@@ -42,7 +42,12 @@ export function WorldCupOppositionStats() {
             <CartesianGrid vertical={false} />
             <XAxis dataKey="team" />
             <ChartTooltip content={<ChartTooltipContent />} />
-            <Bar dataKey="goals" fill="var(--color-goals)" name="Goals" />
+            <Bar dataKey="goals" name="Goals">
+              {/* Use Cell components to apply different colors to each bar */}
+              {oppositionData.map((entry, index) => (
+                <Cell key={`cell-${index}`} fill={entry.color} />
+              ))}
+            </Bar>
           </BarChart>
         </ChartContainer>
       </CardContent>

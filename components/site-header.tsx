@@ -13,7 +13,7 @@ export function SiteHeader() {
         <div className="mr-4 flex">
           <Link href="/" className="flex items-center space-x-2">
             <Trophy className="h-6 w-6" />
-            <span className="font-bold">Ronaldo Stats</span>
+            <span className="font-bold">AR7</span>
           </Link>
         </div>
         <nav className="flex items-center space-x-6 text-sm font-medium">
