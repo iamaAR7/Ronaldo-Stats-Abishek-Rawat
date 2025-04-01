@@ -73,7 +73,7 @@ export default function MajorLeaguesPage() {
           </CardHeader>
           <CardContent>
             <ul className="list-disc pl-5 space-y-2">
-              <li>44 goals in 45 appearances</li>
+              <li>92 goals in 103 appearances</li>
               <li>Saudi Pro League top scorer (2023-24)</li>
               <li>Multiple hat-tricks including against Al-Wehda</li>
               <li>Scored in 7 consecutive league matches</li>
