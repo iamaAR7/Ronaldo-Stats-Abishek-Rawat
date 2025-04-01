@@ -83,8 +83,8 @@ export function RonaldoEuroCup() {
             <ChartTooltip
               content={
                 <ChartTooltipContent
-                  customContent={(entry) => (
-                    <div className="font-medium">{entry?.payload?.[0]?.payload.achievement}</div>
+                  formatter={(value, name, props) => (
+                    <div className="font-medium">{props.payload.achievement}</div>
                   )}
                 />
               }

@@ -35,9 +35,9 @@ export function LeagueOppositionStats() {
             <Pie
               data={oppositionData}
               cx="50%"
-              cy="50%"
+              cy="60%"
               labelLine={true}
-              outerRadius={150}
+              outerRadius={120}
               fill="#8884d8"
               dataKey="value"
               nameKey="name"
@@ -50,10 +50,10 @@ export function LeagueOppositionStats() {
             <ChartTooltip
               content={
                 <ChartTooltipContent
-                  customContent={(entry:any) => (
+                  formatter={(value, name, props) => (
                     <div className="flex flex-col gap-1">
-                      <div className="font-medium">{entry?.payload?.[0]?.name}</div>
-                      <div>Goals: {entry?.payload?.[0]?.value}</div>
+                      <div className="font-medium">{props.payload.name}</div>
+                      <div>Goals: {props.payload.value}</div>
                     </div>
                   )}
                 />

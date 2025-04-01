@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Trophy } from "lucide-react"
+import { Trophy, Star } from "lucide-react"
 
 export function SiteHeader() {
   const pathname = usePathname()
@@ -24,6 +24,16 @@ export function SiteHeader() {
             }`}
           >
             Home
+          </Link>
+          <Link
+            href="/legacy"
+            className={`transition-colors hover:text-foreground/80 ${
+              pathname === "/legacy" ? "text-foreground" : "text-foreground/60"
+            }`}
+          >
+            <span className="flex items-center">
+              Legacy <Star className="h-3 w-3 ml-1" />
+            </span>
           </Link>
           <Link
             href="/major-leagues"
@@ -57,6 +67,7 @@ export function SiteHeader() {
           >
             World Cup
           </Link>
+          
         </nav>
       </div>
     </header>
