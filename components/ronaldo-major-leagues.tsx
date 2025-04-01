@@ -28,7 +28,7 @@ const clubData = [
   },
   {
     club: "Al-Nassr",
-    goals: 44,
+    goals: 92,
     period: "2023-Present",
     color: "#ffcc00", // Al-Nassr yellow
   },
